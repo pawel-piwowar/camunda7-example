@@ -47,7 +47,10 @@ Defined users:
 There is another method using WSL2 and Ubuntu (https://www.paulsblog.dev/how-to-install-docker-without-docker-desktop-on-windows/)
 Idea is also able to connect to Docker Engine installed on WSL2.
 - optionally : access Keyclock on http://localhost:28080/ , login as admin/admin, import users from
-  "keyclock-realm-export.json" located in test/resources (this will allow generating new JWT tokens)
+  "keyclock-realm-export.json" located in test/resources (this will allow generating new JWT tokens). 
+   Note : additional Keyclock configuration is required to create users : "peter" and "mary"
+   and create groups: "sales" and "management". User "peter" should be in group "management" and "mary" in "sales".  
+   Additional mapping should be added in order to add user groups to JWT token.
 
 ## Running application
 - Run from app root directory
