@@ -50,6 +50,10 @@ Idea is also able to connect to Docker Engine installed on WSL2.
   "keyclock-realm-export.json" located in test/resources (this will allow generating new JWT tokens)
 
 ## Running application
+- Run from app root directory
+```
+  docker-compose up
+```
 - Run CamundaExampleApp from its root directory
 
 ```
