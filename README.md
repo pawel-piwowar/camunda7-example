@@ -1,9 +1,10 @@
 # Camunda Example
 This example shows how to use Camunda 7 process engine embedded in Spring Boot application.
 Usage scenario includes:
-- Oracle database for storing both business data and process data
+- Camunda 7 BPMN engine used for workflow management
+- Single Sign On (SSO) integration using Keyclock and JWT
+- Oracle database for storing both customer and process data
 - RabbitMq for publishing end receiving events generated during process execution
-- SSO integration using Keyclock
 
 ![Component Diagram](./img/Camunda7-Example-Strona-2.drawio.png "Component Diagram")
 
