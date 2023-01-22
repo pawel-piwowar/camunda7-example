@@ -1,0 +1,34 @@
+version: "3.2"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - rabbitmq_go_net
+
+  oracle-db:
+    image: gvenzl/oracle-xe
+    ports:
+      - 1521:1521
+    environment:
+      - ORACLE_DATABASE=CAMUNDA
+      - ORACLE_PASSWORD=oracle
+      - APP_USER=camunda
+      - APP_USER_PASSWORD=camunda
+
+  keycloak:
+    container_name: local_keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    image: quay.io/keycloak/keycloak:20.0.2
+    ports:
+      - "28080:8080"
+    command: start-dev
+
+networks:
+  rabbitmq_go_net:
+    driver: bridge

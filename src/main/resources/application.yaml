@@ -1,0 +1,36 @@
+camunda.bpm:
+  authorization.enabled: true
+  admin-user:
+    id: demo
+    password: demo
+    firstName: Demo
+  filter:
+    create: All tasks
+spring:
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: false
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/camunda
+    username: camunda
+    password: camunda
+    driver-class-name: oracle.jdbc.OracleDriver
+  cloud:
+    stream:
+      function:
+        definition: syncResponseEvent
+      bindings:
+        customerEvent:
+          destination: customerEvent
+          producer:
+            requiredGroups: customerEventQueue
+        syncResponseEvent-in-0:
+          destination: syncResponseEvent
+          group: syncResponseEventQueue
+
+
+
