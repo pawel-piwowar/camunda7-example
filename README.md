@@ -9,7 +9,7 @@ Usage scenario includes:
 
 
 ## Business Scenario
-Example business process is dedicated to approving new Customers. 
+Example business process is dedicated for approving new Customers. 
 Customer can be added to database with "APPROVED" status only when accepted by someone from management.
 Manager can simply approve, but could also reject such Customer or mark it as incomplete,
 in such case someone from Sales department would have to correct any invalid/missing data.   
