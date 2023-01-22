@@ -5,7 +5,7 @@ Usage scenario includes:
 - RabbitMq for publishing end receiving events generated during process execution
 - SSO integration using Keyclock
 
-![Component Diagram](./img/Camunda 7 Example-Strona-2.drawio.png "Component Diagram")
+![Component Diagram](./img/Camunda7-Example-Strona-2.drawio.png "Component Diagram")
 
 
 ## Business Scenario
