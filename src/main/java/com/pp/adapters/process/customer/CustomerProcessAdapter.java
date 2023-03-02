@@ -13,11 +13,11 @@ import static com.pp.adapters.process.customer.CustomerProcessConstants.CUSTOMER
 @Service
 public record CustomerProcessAdapter(RuntimeService runtimeService) implements CustomerProcessService {
     @Override
-    public void startCustomerApprovalProcess(Customer Customer) {
+    public void startCustomerApprovalProcess(Customer customer) {
 
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("CustomerApproval");
-        runtimeService.setVariable(processInstance.getId(), CUSTOMER_ID_PROCESS_VARIABLE_NAME, Customer.getId());
-        runtimeService.setVariable(processInstance.getId(), CUSTOMER_NAME_PROCESS_VARIABLE_NAME, Customer.getName());
+        runtimeService.setVariable(processInstance.getId(), CUSTOMER_ID_PROCESS_VARIABLE_NAME, customer.getId());
+        runtimeService.setVariable(processInstance.getId(), CUSTOMER_NAME_PROCESS_VARIABLE_NAME, customer.getName());
 
     }
 }

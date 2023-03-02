@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 @AllArgsConstructor
 @Component
 public class SyncResponseReceiverAdapter {
-    private final CustomerService CustomerService;
+    private final CustomerService customerService;
     private final ObjectMapper objectMapper;
 
     @Bean
@@ -27,7 +27,7 @@ public class SyncResponseReceiverAdapter {
     private void processEvent(String message) {
         log.info("Received the value {} in Consumer", message);
         SyncResponseEvent syncResponseEvent = objectMapper.readValue(message, SyncResponseEvent.class);
-        CustomerService.processSyncResponseEvent(syncResponseEvent);
+        customerService.processSyncResponseEvent(syncResponseEvent);
     }
 
 }

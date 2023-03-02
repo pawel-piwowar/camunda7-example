@@ -11,12 +11,12 @@ import static com.pp.adapters.process.customer.CustomerProcessConstants.CUSTOMER
 @Slf4j
 @Service
 public record CustomerApproveDelegate(
-        CustomerService CustomerService) implements JavaDelegate {
+        CustomerService customerService) implements JavaDelegate {
 
     public void execute(DelegateExecution delegate) {
         log.info("Marking Customer as Approved invoked");
         Long CustomerId = (Long) delegate.getVariable(CUSTOMER_ID_PROCESS_VARIABLE_NAME);
-        CustomerService.approveCustomer(CustomerId);
+        customerService.approveCustomer(CustomerId);
     }
 
 }

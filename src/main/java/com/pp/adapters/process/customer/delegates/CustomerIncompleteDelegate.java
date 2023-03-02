@@ -11,12 +11,12 @@ import static com.pp.adapters.process.customer.CustomerProcessConstants.NOTES_PR
 
 @Slf4j
 @Service
-public record CustomerIncompleteDelegate(CustomerService CustomerService) implements JavaDelegate {
+public record CustomerIncompleteDelegate(CustomerService customerService) implements JavaDelegate {
     public void execute(DelegateExecution delegate)
     {
         log.info("Customer mark incomplete invoked");
         Long CustomerId = (Long) delegate.getVariable(CUSTOMER_ID_PROCESS_VARIABLE_NAME);
         String notes = (String) delegate.getVariable(NOTES_PROCESS_VARIABLE_NAME);
-        CustomerService.incompleteCustomer(CustomerId, notes);
+        customerService.incompleteCustomer(CustomerId, notes);
     }
 }

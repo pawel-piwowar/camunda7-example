@@ -14,11 +14,11 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("customers")
-record CustomerController(CustomerService CustomerService) {
+record CustomerController(CustomerService customerService) {
 
     @PostMapping
     ResponseEntity<Customer> createCustomerCandidate(@RequestBody final CustomerDto CustomerDto) {
-        Customer Customer = CustomerService.createCustomer(CustomerDto.toCustomer());
+        Customer Customer = customerService.createCustomer(CustomerDto.toCustomer());
         return new ResponseEntity<>(Customer, HttpStatus.CREATED);
     }
 
@@ -27,7 +27,7 @@ record CustomerController(CustomerService CustomerService) {
         log.info("User logged: " + authentication.getName());
         authentication.getAuthorities().forEach(auth -> log.info("User Group: " + auth.getAuthority()));
 
-        return CustomerService.getAllCustomers();
+        return customerService.getAllCustomers();
     }
 
 }

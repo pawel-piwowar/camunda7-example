@@ -16,9 +16,9 @@ public class CustomerEventSenderAdapter implements CustomerEventSender {
 
     private final StreamBridge streamBridge;
     @Override
-    public void sendCustomerEvent(CustomerEvent CustomerEvent) {
-        streamBridge.send(Customer_EVENT, CustomerEvent);
-        log.info("Event " + CustomerEvent + "sent to channel : " + Customer_EVENT);
+    public void sendCustomerEvent(CustomerEvent customerEvent) {
+        streamBridge.send(Customer_EVENT, customerEvent);
+        log.info("Event " + customerEvent + "sent to channel : " + Customer_EVENT);
     }
 
 }
